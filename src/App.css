@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Roboto:wght@400;500&family=Urbanist&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500&family=Roboto:wght@400;500&family=Urbanist:wght@100;400&display=swap'); */
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
