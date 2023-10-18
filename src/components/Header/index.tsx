@@ -36,12 +36,12 @@ export const Header: React.FC = () => {
                 </svg>
               </div>
               <p
-                className="w-[calc(100vw-110px)] font-Urbanist text-[14px] not-italic font-medium leading-normal sm:text-[16px] sm:w-[320px] md:text-[18px] md:w-[360px]"
+                className="font-Urbanist text-[14px] w-[100%] not-italic font-medium leading-normal sm:text-[16px] md:text-[18px]"
                 style={{ color: "var(--absolute-white, #FFF)" }}
               >
                 Join Our Personalized Nutrition Demo For Free
               </p>
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
                   d="M3.6001 12.0002C3.6001 11.5031 4.00304 11.1002 4.5001 11.1002L17.2656 11.1002L12.2763 6.34894C11.918 6.00443 11.9068 5.43469 12.2513 5.0764C12.5959 4.7181 13.1656 4.70693 13.5239 5.05144L20.1239 11.3514C20.3004 11.5211 20.4001 11.7554 20.4001 12.0002C20.4001 12.245 20.3004 12.4793 20.1239 12.6489L13.5239 18.9489C13.1656 19.2935 12.5959 19.2823 12.2513 18.924C11.9068 18.5657 11.918 17.996 12.2763 17.6514L17.2656 12.9002L4.5001 12.9002C4.00304 12.9002 3.6001 12.4973 3.6001 12.0002Z"
                   fill="white"
                 />
-              </svg>
+              </svg> */}
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ export const Header: React.FC = () => {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              className="w-[20px] h-[20px] hidden sm:block md:block md:w-[24px] md:h-[24px]"
+              className="w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
             >
               <path
                 fill-rule="evenodd"
@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
               height="44"
               viewBox="0 0 196 44"
               fill="none"
-              className="hidden absolute sm:block md:block sm:w-[144px] left-[40px] sm:absolute sm:top-[0px] md:w-[194.175px] md:h-[100px] md:bottom-[-32px]"
+              className="hidden absolute sm:block md:block sm:w-[144px] left-[40px] sm:absolute sm:top-[0px] md:w-[194.175px] md:h-[48px] md:bottom-[-32px]"
             >
               <path
                 d="M115.457 -24L46.1803 6.28571L115.457 -10.9524L48.9915 18.0952L158.629 -13.2381L1 48.7619L195.175 -8.38095L46.1803 47.0476L158.629 20.381L67.2644 57.4286L152.002 34.4762L97.3846 76"
@@ -93,7 +93,7 @@ export const Header: React.FC = () => {
               height="44"
               viewBox="0 0 196 44"
               fill="none"
-              className="hidden absolute sm:block md:block sm:w-[144px] sm:right-[65px] sm:absolute sm:bottom-[0px] md:w-[194.175px] md:h-[100px] md:bottom-[-32px] md:right-[39.825px]"
+              className="hidden absolute sm:block md:block sm:w-[144px] sm:right-[65px] sm:absolute sm:bottom-[0px] md:w-[194.175px] md:h-[48px] md:right-[39.825px]"
             >
               <path
                 d="M80.7181 -24L149.995 6.28571L80.7181 -10.9524L147.183 18.0952L37.5459 -13.2381L195.175 48.7619L1.00005 -8.38095L149.995 47.0476L37.5459 20.381L128.91 57.4286L44.1723 34.4762L98.7902 76"

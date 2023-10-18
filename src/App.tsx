@@ -11,7 +11,7 @@ function App() {
   return (
     // <Provider store={store}>
     <BrowserRouter>
-    <div className="h-[100vh] flex flex-col bg-[#FAFDF2]">
+    <div className="flex flex-col bg-[#FAFDF2]">
     <HeaderPage />
         <Routes>
           <Route path={PATH.NOTFOUND} element={<NotFoundPage />} />
