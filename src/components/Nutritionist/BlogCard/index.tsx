@@ -45,7 +45,7 @@ export const BlogCard: React.FC<Blog_Card> = (props) => {
                         <p className="self-stretch text-[#59595A] font-Urbanist text-[14px] not-italic font-medium leading-[150%] sm:text-[16px] md:text-[18px]">{props.partnerTime}</p>
                     </div>
                 </div>
-                <div className="flex items-start gap-[8px] md:gap-[10px]">
+                <div className="flex items-start gap-[8px] md:gap-[10px] flex-wrap">
                     <div className="flex p-[14px] items-start gap-[10px] rounded-[6px] border-[1px] border-solid border-[#EEF8D3] bg-[#F6FBE9] md:rounded-[8px]">{props.iconBook}</div>
                     <div className="flex p-[14px] items-start gap-[10px] rounded-[6px] border-[1px] border-solid border-[#EEF8D3] bg-[#F6FBE9] md:rounded-[8px]">{props.iconLove}</div>
                 </div>

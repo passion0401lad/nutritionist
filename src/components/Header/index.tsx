@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
   return (
+    //   <div className="sticky top-0 flex flex-col items-start">
       <div className="flex flex-col items-start">
         <div
           style={{
@@ -42,13 +43,14 @@ export const Header: React.FC = () => {
                 Join Our Personalized Nutrition Demo For Free
               </p>
             </div>
+            <button className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              className="w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
+              className="hover:animate-ping w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
             >
               <path
                 fill-rule="evenodd"
@@ -57,13 +59,14 @@ export const Header: React.FC = () => {
                 fill="white"
               />
             </svg>
+            </button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="196"
               height="44"
               viewBox="0 0 196 44"
               fill="none"
-              className="hidden absolute sm:block md:block sm:w-[144px] left-[40px] sm:absolute sm:top-[0px] md:w-[194.175px] md:h-[48px] md:bottom-[-32px]"
+              className="hidden absolute min-[950px]:block sm:w-[144px] md:block left-[40px] sm:absolute sm:top-[0px] md:w-[194.175px] md:h-[48px] md:bottom-[-32px]"
             >
               <path
                 d="M115.457 -24L46.1803 6.28571L115.457 -10.9524L48.9915 18.0952L158.629 -13.2381L1 48.7619L195.175 -8.38095L46.1803 47.0476L158.629 20.381L67.2644 57.4286L152.002 34.4762L97.3846 76"
@@ -78,7 +81,7 @@ export const Header: React.FC = () => {
               height="44"
               viewBox="0 0 196 44"
               fill="none"
-              className="hidden absolute sm:block md:block sm:w-[144px] sm:right-[65px] sm:absolute sm:bottom-[0px] md:w-[194.175px] md:h-[48px] md:right-[39.825px]"
+              className="hidden absolute min-[950px]:block md:block sm:w-[144px] sm:right-[65px] sm:absolute sm:bottom-[0px] md:w-[194.175px] md:h-[48px] md:right-[39.825px]"
             >
               <path
                 d="M80.7181 -24L149.995 6.28571L80.7181 -10.9524L147.183 18.0952L37.5459 -13.2381L195.175 48.7619L1.00005 -8.38095L149.995 47.0476L37.5459 20.381L128.91 57.4286L44.1723 34.4762L98.7902 76"
@@ -211,41 +214,41 @@ export const Header: React.FC = () => {
               />
             </svg>
           </div>
-          <div className="flex justify-end items-center gap-[30px] hidden sm:flex md:flex md:gap-[40px]">
+          <div className="flex justify-end items-center gap-[30px] hidden sm:flex md:flex md:gap-[40px] flex-wrap">
             <div className="flex items-center gap-[20px] md:gap-[26px]">
               <Link
                 to="#"
-                className="text-[#CBEA7B] hover:text-[#8a8d83] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
+                className="text-[#CBEA7B] hover:text-[#daeea6] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
               >
                 Home
               </Link>
               <Link
                 to="#"
-                className="text-[#FAFDF2] hover:text-[#8a8d83] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
+                className="text-[#FAFDF2] hover:text-[#daeea6] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
               >
                 About
               </Link>
               <Link
                 to="#"
-                className="text-[#FAFDF2] hover:text-[#8a8d83] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
+                className="text-[#FAFDF2] hover:text-[#daeea6] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
               >
                 Team
               </Link>
               <Link
                 to="#"
-                className="text-[#FAFDF2] hover:text-[#8a8d83] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
+                className="text-[#FAFDF2] hover:text-[#daeea6] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
               >
                 Process
               </Link>
               <Link
                 to="#"
-                className="text-[#FAFDF2] hover:text-[#8a8d83] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
+                className="text-[#FAFDF2] hover:text-[#daeea6] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
               >
                 Pricing
               </Link>
               <Link
                 to="#"
-                className="text-[#FAFDF2] hover:text-[#8a8d83] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
+                className="text-[#FAFDF2] hover:text-[#daeea6] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]"
               >
                 Blog
               </Link>

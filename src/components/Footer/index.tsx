@@ -167,7 +167,7 @@ export const Footer: React.FC = () => {
             </svg>
           </div>
           <div className="flex items-center gap-[6px] rounded-[12px]">
-            <p className="text-[#fff] font-Urbanist text-[16px] not-italic font-semibold leading-[150%]">
+            <p className="hidden min-[350px]:block text-[#fff] font-Urbanist text-[16px] not-italic font-semibold leading-[150%]">
               Got To Top
             </p>
             <button
@@ -318,7 +318,7 @@ export const Footer: React.FC = () => {
           {footer_button.map((item) => (
             <button className="hover:bg-[#2e5548] rounded-[4px] border-[1px] border-solid border-[#2C5446] flex p-[12px] justify-center items-center gap-[4px] self-stretch sm:justify-normal sm:self-auto md:p-[14px] md:gap-[6px]">
               {item.svg}
-              <p className="text-[#fff] font-Urbanist text-[16px] not-italic font-medium leading-[150%] md:text-[18px]">
+              <p className="hidden min-[350px]:block text-[#fff] font-Urbanist text-[16px] not-italic font-medium leading-[150%] md:text-[18px]">
                 {item.text}
               </p>
             </button>
