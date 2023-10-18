@@ -5,7 +5,7 @@ import { PATH } from 'consts';
 // import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { store } from 'store';
-import { FooterPage, HeaderPage, NotFoundPage , NutritionistPage } from 'pages';
+import { FooterPage, HeaderPage, LogInPage, MenuPage, NotFoundPage , NutritionistPage, SignUpPage } from 'pages';
 
 function App() {
   return (
@@ -13,9 +13,12 @@ function App() {
     <BrowserRouter>
     <div className="flex flex-col bg-[#FAFDF2]">
     <HeaderPage />
+    <MenuPage />
         <Routes>
           <Route path={PATH.NOTFOUND} element={<NotFoundPage />} />
           <Route path={PATH.DASHBOARD} element={<NutritionistPage />} />
+          <Route path={PATH.SIGNUP} element={<SignUpPage />} />
+          <Route path={PATH.LOGIN} element={<LogInPage />} />
         </Routes>
         <FooterPage />
       </div>

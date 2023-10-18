@@ -24,6 +24,9 @@ module.exports = {
     },
     fontFamily: {
       'Urbanist': ['Urbanist']
+    },
+    backgroundImage: {
+      // 'background': "url('./src/img/background.png')",
     }
   },
   plugins: [],

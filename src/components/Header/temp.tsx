@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
   return (
+      <div className="z-20 sticky top-0 flex flex-col items-start">
+    {/* <div className="flex flex-col items-start"> */}
       <div
         style={{
           borderBottom: "1px solid var(--dark-green-20, #234338)",
@@ -120,17 +122,12 @@ export const Header: React.FC = () => {
           />
         </svg>
       </div>
-  );
-};
-
-export const Menu: React.FC = () => {
-  return (
       <div
         style={{
           borderBottom: "1px solid var(--green-90, #EEF8D3)",
           background: "var(--dark-green-15, #1A3129)",
         }}
-        className="sticky top-0 z-10 flex justify-between items-center self-stretch px-[16px] py-[20px] sm:px-[80px] sm:py-[16px] md:px-[162px] md:py-[20px]"
+        className="z-10 flex justify-between items-center self-stretch px-[16px] py-[20px] sm:px-[80px] sm:py-[16px] md:px-[162px] md:py-[20px]"
       >
         <div className="flex w-[147px] justify-center items-center gap-[6px] md:w-[193px] md:gap-[8px]">
           <svg
@@ -278,5 +275,6 @@ export const Menu: React.FC = () => {
           />
         </svg>
       </div>
+    </div>
   );
 };
