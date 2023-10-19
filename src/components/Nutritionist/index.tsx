@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BlogCard, Blog_Card } from "./BlogCard";
 import { Link } from "react-router-dom";
-import "./styles.css";
 import { Test_Card, TestCard } from "./Testimonial";
 import { Price_Card, PriceCard } from "./PricingCard";
 
