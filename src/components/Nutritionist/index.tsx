@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { BlogCard, Blog_Card } from "./BlogCard";
 import { Link } from "react-router-dom";
-import "./styles.css";
 import { Test_Card, TestCard } from "./Testimonial";
 import { Price_Card, PriceCard } from "./PricingCard";
 
 export const Nutritionist: React.FC = () => {
+  const [state, setState] = useState<{ numTest: number , salPrice:Boolean }>({
+    numTest: 1,
+    salPrice: true
+  });
+
+  function setTestPage(index: number): void {
+    if (state.numTest === 1 && index === -1) {
+      setState({ ...state, numTest: 5 });
+    } else if (state.numTest === 5 && index === 1) {
+      setState({ ...state, numTest: 1 });
+    } else setState({ ...state, numTest: state.numTest + index });
+  };
+
+  function setPriceSalary():void {
+    setState({...state, salPrice:!state.salPrice})
+  };
+
   const featureCards1: { icon: any; header: string; text: string } = {
     icon: (
       <svg
@@ -412,9 +428,34 @@ export const Nutritionist: React.FC = () => {
       "Experience the full benefits of personalized nutrition coaching with our Ultimate Plan. Enjoy all the features of the Premium Plan, along with 24/7 chat support and exclusive workshops.",
     salary: "$99",
   };
+  const testToggleChecked: any = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="8"
+      height="8"
+      viewBox="0 0 8 8"
+      fill="none"
+      className="w-[7px] h-[7px]"
+    >
+      <circle cx="4" cy="4" r="3.5" fill="#356554" />
+    </svg>
+  );
+  const testToggleUnchecked: any = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="8"
+      height="8"
+      viewBox="0 0 8 8"
+      fill="none"
+      className="w-[7px] h-[7px] fill-[#E5F5BD]"
+    >
+      <circle cx="4" cy="4" r="3.5" fill="#E5F5BD" />
+    </svg>
+  );
   return (
+    // <div className="overflow-auto h-[100vh] flex flex-col gap-[50px] sm:gap-[100px] md:gap-[150px]">
     <div className="flex flex-col gap-[50px] sm:gap-[100px] md:gap-[150px]">
-      <div className="flex flex-col justify-center items-start sm:flex-row sm:jusitfy-normal sm:items-stretch sm:gap-[40px] md:gap-[50px]">
+      <div className="flex flex-col justify-center items-start sm:flex-row sm:jusitfy-normal sm:items-stretch sm:gap-[40px] md:gap-[50px] sm:pr-[20px]">
         <img
           src="./src/img/homepage-1.png"
           style={{
@@ -432,7 +473,7 @@ export const Nutritionist: React.FC = () => {
                     Transform Your ❤️ Health with
                   </p>
                 </div>
-                <p className="self-stretch text-[#1A3129] text-center font-Urbanist text-[38px] not-italic font-bold leading-normal sm:text-left sm:text-[48px] md:text-[58px]">
+                <p className="self-stretch text-[#1A3129] text-center font-Urbanist text-[30px] min-[250px]:text-[38px] not-italic font-bold leading-normal sm:text-left sm:text-[48px] md:text-[58px]">
                   Personalized Nutrition Coaching
                 </p>
               </div>
@@ -481,7 +522,7 @@ export const Nutritionist: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col px-[16px] sm:px-[80px] md:px-[162px] items-start gap-[50px] sm:gap-[60px] md:gap-[80px]">
-        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[250px] md:px-[300px] gap-[10px]">
+        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[100px] min-[1000px]:px-[250px] md:px-[300px] gap-[10px]">
           <h1 className="self-stretch text-center text-[#262626] font-Urbanist text-[28px] not-italic font-bold leading-[150%] sm:text-[38px] md:text-[48px]">
             Features
           </h1>
@@ -568,7 +609,7 @@ export const Nutritionist: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col px-[16px] sm:px-[80px] md:px-[162px] items-start gap-[50px] sm:gap-[60px] md:gap-[80px]">
-        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[250px] md:px-[300px] gap-[10px]">
+        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[100px] min-[1000px]:px-[250px] md:px-[300px] gap-[10px]">
           <h1 className="self-stretch text-center text-[#262626] font-Urbanist text-[28px] not-italic font-bold leading-[150%] sm:text-[38px] md:text-[48px]">
             Our Blogs
           </h1>
@@ -596,7 +637,7 @@ export const Nutritionist: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col px-[16px] sm:px-[80px] md:px-[162px] items-start gap-[50px] sm:gap-[60px] md:gap-[80px]">
-        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[250px] md:px-[300px] gap-[10px]">
+        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[100px] min-[1000px]:px-[250px] md:px-[300px] gap-[10px]">
           <h1 className="self-stretch text-center text-[#262626] font-Urbanist text-[28px] not-italic font-bold leading-[150%] sm:text-[38px] md:text-[48px]">
             Our Testimonials
           </h1>
@@ -614,8 +655,11 @@ export const Nutritionist: React.FC = () => {
           <div className="sm:hidden md:hidden">
             <TestCard {...testCard1} />
           </div>
-          <div className="flex justify-center items-center gap-[20px] self-stretch md:gap-[30px]">
-            <button className="flex p-[10px] items-start gap-[10px] rounded-[6px] border-[1px] border-solid border-[#EEF8D3] bg-[#F6FBE9] md:p-[12px]">
+          <div className="flex justify-center items-center gap-[20px] self-stretch md:gap-[30px] flex-wrap">
+            <button
+              onClick={() => setTestPage(-1)}
+              className="flex p-[10px] items-start gap-[10px] rounded-[6px] border-[1px] border-solid border-[#EEF8D3] bg-[#F6FBE9] md:p-[12px] hover:bg-[#eef7d9]"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="34"
@@ -634,58 +678,16 @@ export const Nutritionist: React.FC = () => {
               </svg>
             </button>
             <div className="flex items-start gap-[4px]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                className="w-[7px] h-[7px]"
-              >
-                <circle cx="4" cy="4" r="3.5" fill="#356554" />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                className="w-[7px] h-[7px] fill-[#E5F5BD]"
-              >
-                <circle cx="4" cy="4" r="3.5" fill="#E5F5BD" />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                className="w-[7px] h-[7px] fill-[#E5F5BD]"
-              >
-                <circle cx="4" cy="4" r="3.5" fill="#E5F5BD" />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                className="w-[7px] h-[7px] fill-[#E5F5BD]"
-              >
-                <circle cx="4" cy="4" r="3.5" fill="#E5F5BD" />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                className="w-[7px] h-[7px] fill-[#E5F5BD]"
-              >
-                <circle cx="4" cy="4" r="3.5" fill="#E5F5BD" />
-              </svg>
+              {state.numTest === 1 ? testToggleChecked : testToggleUnchecked}
+              {state.numTest === 2 ? testToggleChecked : testToggleUnchecked}
+              {state.numTest === 3 ? testToggleChecked : testToggleUnchecked}
+              {state.numTest === 4 ? testToggleChecked : testToggleUnchecked}
+              {state.numTest === 5 ? testToggleChecked : testToggleUnchecked}
             </div>
-            <button className="flex p-[10px] items-start gap-[10px] rounded-[6px] border-[1px] border-solid border-[#EEF8D3] bg-[#F6FBE9] md:p-[12px]">
+            <button
+              onClick={() => setTestPage(1)}
+              className="flex p-[10px] items-start gap-[10px] rounded-[6px] border-[1px] border-solid border-[#EEF8D3] bg-[#F6FBE9] md:p-[12px] hover:bg-[#eef7d9]"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="34"
@@ -707,7 +709,7 @@ export const Nutritionist: React.FC = () => {
         </div>
       </div>
       <div className="mb-[50px] sm:mb-[100px] md:mb-[150px] flex flex-col px-[16px] sm:px-[80px] md:px-[162px] items-start gap-[50px] sm:gap-[60px] md:gap-[80px]">
-        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[250px] md:px-[300px] gap-[10px]">
+        <div className="flex flex-col gap-[6px] items-center self-stretch sm:px-[100px] min-[1000px]:px-[250px] md:px-[300px] gap-[10px]">
           <h1 className="self-stretch text-center text-[#262626] font-Urbanist text-[28px] not-italic font-bold leading-[150%] sm:text-[38px] md:text-[48px]">
             Our Pricing
           </h1>
@@ -719,20 +721,26 @@ export const Nutritionist: React.FC = () => {
           </p>
         </div>
         <div className="flex flex-col items-center gap-[30px] self-stretch sm:gap-[40px] md:gap-[50px]">
-          <div className="flex w-[311px] flex-col items-center gap-[10px]">
+          <div className="flex flex-col items-center gap-[10px]">
             <div className="flex p-[10px] items-center rounded-[8px] border-[1px] border-solid border-[#DCF1A7]">
-              <button className="text-[#fff] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] flex px-[24px] py-[10px] justify-center items-center gap-[10px] rounded-[6px] bg-[#234338]">
+              <button onClick={setPriceSalary} className={(state.salPrice ? "hover:bg-[#386b59] bg-[#234338] text-[#fff] " : "hover:bg-[#57a387] hover:text-[#fff] text-[#4C4C4C] ")+ "hidden min-[270px]:flex font-Urbanist text-[14px] not-italic font-semibold leading-[150%] flex px-[24px] py-[10px] justify-center items-center gap-[10px] rounded-[6px]"}>
                 Monthly
               </button>
-              <button className="text-[#4C4C4C] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] flex px-[24px] py-[10px] justify-center items-center gap-[10px] rounded-[6px]">
+              <button onClick={setPriceSalary} className={(state.salPrice ? "hover:bg-[#386b59] bg-[#234338] text-[#fff] " : "hover:bg-[#57a387] hover:text-[#fff] text-[#4C4C4C] ")+ "min-[270px]:hidden font-Urbanist text-[14px] not-italic font-semibold leading-[150%] flex px-[24px] py-[10px] justify-center items-center gap-[10px] rounded-[6px]"}>
+                M
+              </button>
+              <button onClick={setPriceSalary} className={(!state.salPrice ? "hover:bg-[#386b59] bg-[#234338] text-[#fff] " : "hover:bg-[#57a387] hover:text-[#fff] text-[#4C4C4C] ")+ "hidden min-[270px]:flex font-Urbanist text-[14px] not-italic font-semibold leading-[150%] flex px-[24px] py-[10px] justify-center items-center gap-[10px] rounded-[6px]"}>
                 Yearly
+              </button>
+              <button onClick={setPriceSalary} className={(!state.salPrice ? "hover:bg-[#386b59] bg-[#234338] text-[#fff] " : "hover:bg-[#57a387] hover:text-[#fff] text-[#4C4C4C] ")+ "min-[270px]:hidden font-Urbanist text-[14px] not-italic font-semibold leading-[150%] flex px-[24px] py-[10px] justify-center items-center gap-[10px] rounded-[6px]"}>
+                Y
               </button>
             </div>
             <p className="self-stretch text-[#4C4C4D] text-center font-Urbanist text-[16px] not-italic font-medium leading-[150%]">
               Save 50% on Yearly
             </p>
           </div>
-          <div className="flex flex-col items-stretch gap-[20px] self-stretch sm:flex-row md:gap-[30px]">
+          <div className="flex flex-col items-stretch gap-[20px] self-stretch min-[800px]:flex-row md:gap-[30px]">
             <PriceCard {...priceCard1} />
             <PriceCard {...priceCard2} />
             <PriceCard {...priceCard3} />
