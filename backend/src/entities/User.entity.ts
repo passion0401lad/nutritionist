@@ -3,16 +3,16 @@ import { Column, Entity, Generated } from 'typeorm';
 import { CoreEntity } from './Core.entity';
 
 @Entity({
-    name: 'user',
+    name: 'users',
 })
 export class UserEntity extends CoreEntity {
     @Column({ name: 'name', nullable: true})
-    name?: string;
+    name: string;
 
     @Column({ name: 'email', nullable: true})
-    email?: string;
+    email: string;
 
     @Column({ name: 'password', nullable: true})
-    password?: string;
+    password: string;
     
 }

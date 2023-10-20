@@ -34,7 +34,7 @@ const backendSetup = (app: Express) => {
   app.use(errorHandlerMiddleware);
 
   app.listen(port, () => {
-    console.info(MESSAGES.SERVER_RUN_SUCCESS);
+    console.info(`${MESSAGES.SERVER_RUN_SUCCESS} on PORT:${port}`);
   });
 };
 

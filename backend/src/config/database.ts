@@ -15,7 +15,7 @@ export const dbOptions: DataSourceOptions = {
     logging: false,
     synchronize: false,
     entities: [
-      
+      UserEntity
     ],
     extra: {
       connectionLimit: 10,

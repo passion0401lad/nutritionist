@@ -1,63 +1,48 @@
-// import express from 'express';
+import express from 'express';
 
-// import { authController } from 'controllers';
+import { authController } from 'controllers';
+import { checkToken } from 'utils';
 
-// const authRouter = express.Router();
+const authRouter = express.Router();
 
-// // User Sign Up
-// authRouter.post(
-//   '/sign-up',
-//   authController.signUpValidator(),
-//   authController.signUp
-// );
+// authRouter.get('/' ,(req,res) => res.send('AuthRouter is working'));
 
-// // User Sign Up Code Resend
-// authRouter.post(
-//   '/sign-up/code',
-//   authController.resendSignUpCodeValidator(),
-//   authController.resendSignUpCode
-// );
+//User Sign Up
+authRouter.post(
+    '/signUp',
+    authController.signUpValidator(),
+    authController.signUp
+);
 
-// // User Sign Up Code Verify
-// authRouter.post(
-//   '/sign-up/verify-code',
-//   authController.verifySignUpCodeValidator(),
-//   authController.verifySignUpCode
-// );
+authRouter.post(
+    '/signIn',
+    authController.signInValidator(),
+    authController.signIn
+);
 
-// // User Sign In
-// authRouter.post(
-//   '/sign-in',
-//   authController.signInValidator(),
-//   authController.signIn
-// );
+authRouter.get(
+    '/',
+    checkToken,
+    authController.getMe
+)
 
-// // User MFA Code Resend
-// authRouter.post(
-//   '/sign-in/code',
-//   authController.resendMFACodeValidator(),
-//   authController.resendMFACode
-// );
+authRouter.get(
+    '/:email',
+    checkToken,
+    authController.getUser
+)
 
-// // User MFA Code Verify
-// authRouter.post(
-//   '/sign-in/verify-code',
-//   authController.verifyMFACodeValidator(),
-//   authController.verifyMFACode
-// );
+authRouter.put(
+    '/',
+    checkToken,
+    authController.updateUserValidator(),
+    authController.updateUser
+)
 
-// // Check Google Authenticator Code
-// authRouter.post(
-//   '/sign-in/verify-gacode',
-//   authController.checkValidGATokenValidator(),
-//   authController.checkValidGACode
-// );
+authRouter.delete(
+    '/:email',
+    checkToken,
+    authController.deleteUser
+)
 
-// // SSO Login
-// authRouter.post(
-//   '/sso/login',
-//   authController.ssoLoginValidator(),
-//   authController.ssoLogin
-// );
-
-// export default authRouter;
+export default authRouter;

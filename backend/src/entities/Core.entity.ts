@@ -1,6 +1,7 @@
 import {
     Column,
     CreateDateColumn,
+    UpdateDateColumn,
     DeleteDateColumn,
     Entity,
     PrimaryGeneratedColumn,
@@ -12,12 +13,12 @@ import {
     @PrimaryGeneratedColumn('increment', { type: 'bigint' })
     id: number;
 
-    @CreateDateColumn({ name: 'created_at' })
+    @CreateDateColumn({ name: 'createdAt', nullable: true })
     createdAt: Date;
 
-    @DeleteDateColumn({ name:'update_at', nullable: true })
+    @UpdateDateColumn({ name:'updateAt', nullable: true })
     updateAt?: Date;
 
-    @DeleteDateColumn({ name:'deleted_at', nullable: true })
+    @DeleteDateColumn({ name:'deletedAt', nullable: true })
     deleteAt?: Date;
   }
