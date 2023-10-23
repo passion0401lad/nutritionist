@@ -25,6 +25,7 @@ type ReqBody = {
   email: string;
   sex: Boolean;
   birthday: Date;
+  avatar: string
   password: string;
 };
 type ReqQuery = unknown;
@@ -33,7 +34,7 @@ export const signUpHandler = async (
   req: Request<Params, ResBody, ReqBody, ReqQuery>,
   res: Response
 ) => {
-  const { name, email, sex, birthday, password } = req.body;
+  const { name, email, sex, birthday, avatar, password } = req.body;
   // try {
   const user:UserEntity = await userService.getUserFromEmail(email);
 
@@ -48,6 +49,7 @@ export const signUpHandler = async (
     email: email,
     sex: sex,
     birthday: birthday,
+    avatar: avatar,
     password: hashPassword,
   });
 

@@ -6,6 +6,7 @@ export interface UserModel {
     email: string;
     sex: Boolean;
     birthday: Dayjs | null;
+    avatar: string;
     password: string;
     confirmPassword: string;
 }

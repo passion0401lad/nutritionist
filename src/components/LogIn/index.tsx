@@ -9,6 +9,7 @@ interface Log_In {
 }
 
 export const LogIn: React.FC<Log_In> = (props) => {
+  const {userInfo, onChange, onSubmit} = props;
     const navigate = useNavigate();
 
   return (
@@ -28,10 +29,10 @@ export const LogIn: React.FC<Log_In> = (props) => {
           <input
             type="email"
             name="email"
-            value={props.userInfo.email}
+            value={userInfo.email}
             className="border-[#CBEA7B] border-solid border-[1px] bg-[#F6FBE9] w-[50vw] flex-shrink rounded-[5px] py-[16px] pl-[22px] text-[#468671] font-Urbanist text-[14px] not-italic font-medium leading-[14px]"
             placeholder="passion0401lad@gmail.com"
-            onChange={props.onChange}
+            onChange={onChange}
           />
         </div>
         <div className="gap-[5px] flex flex-col items-stretch px-[8px] py-[12px]">
@@ -41,10 +42,10 @@ export const LogIn: React.FC<Log_In> = (props) => {
           <input
             type="password"
             name="password"
-            value={props.userInfo.password}
+            value={userInfo.password}
             className="border-[#CBEA7B] border-solid border-[1px] bg-[#F6FBE9] w-[50vw] flex-shrink rounded-[5px] py-[16px] pl-[22px] text-[#468671] font-Urbanist text-[14px] not-italic font-medium leading-[14px]"
             placeholder="password"
-            onChange={props.onChange}
+            onChange={onChange}
           />
         </div>
       </div>
@@ -52,7 +53,7 @@ export const LogIn: React.FC<Log_In> = (props) => {
         If you are not registered, please click Sign Up button.
       </p>
       <div className="flex w-[25vw] justify-between px-[24px]">
-        <button onClick={props.onSubmit} className="w-[100px] rounded-[8px] bg-[#CBEA7B] hover:bg-[#a5c25b] px-[16px] py-[12px] md:px-[24px] md:py-[14px] font-Urbanist text-[14px] not-italic font-semibold leading-[150%]">
+        <button onClick={onSubmit} className="w-[100px] rounded-[8px] bg-[#CBEA7B] hover:bg-[#a5c25b] px-[16px] py-[12px] md:px-[24px] md:py-[14px] font-Urbanist text-[14px] not-italic font-semibold leading-[150%]">
           Log In
         </button>
         {/* <Link to="/signup"> */}

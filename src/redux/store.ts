@@ -1,10 +1,11 @@
 import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import { authActions, authReducer,loadingActions, loadingReducer} from "./slices";
+import { authActions, authReducer,fileLoadActions,fileLoadReducer,loadingActions, loadingReducer} from "./slices";
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from "./sagas";
 
 const reducer = combineReducers({
     auth: authReducer,
+    fileLoad: fileLoadReducer,
     loading: loadingReducer
 })
 
@@ -19,6 +20,7 @@ export const store = configureStore({
 
 export const AppActions = {
     auth: authActions,
+    fileLoad: fileLoadActions, 
     loading: loadingActions
 }
 

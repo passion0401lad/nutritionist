@@ -28,7 +28,7 @@ export const deleteUserFromId = async (id:number): Promise<Boolean> => {
 };
 
 export const createUser = async (
-    data: Pick<UserEntity, 'name' | 'email' | 'sex' | 'birthday'| 'password'>
+    data: Pick<UserEntity, 'name' | 'email' | 'sex' | 'birthday' | 'avatar' | 'password'>
 ): Promise<UserEntity | null> => {
     const userRepository = await getUserRepository();
 
@@ -38,6 +38,7 @@ export const createUser = async (
     newUser.email = data.email;
     newUser.sex = data.sex;
     newUser.birthday = data.birthday;
+    newUser.avatar = data.avatar;
     newUser.password = data.password;
 
     await userRepository.save(newUser);
@@ -46,7 +47,7 @@ export const createUser = async (
 }
 
 export const updateUser = async (
-    data: Pick<UserEntity, 'name' | 'email' | 'sex' | 'birthday'| 'password'>
+    data: Pick<UserEntity, 'name' | 'email' | 'sex' | 'birthday' | 'avatar' | 'password'>
 ): Promise<UserEntity | null> => {
     const userRepository = await getUserRepository();
 
@@ -57,6 +58,7 @@ export const updateUser = async (
     user_update.name = data.name ? data.name : user_update.name;
     user_update.sex = data.sex ? data.sex : user_update.sex;
     user_update.birthday = data.birthday ? data.birthday : user_update.birthday;
+    user_update.avatar = data.avatar ? data.avatar : user_update.avatar;
     user_update.password = data.password ? data.password : user_update.password;
     await userRepository.save(user_update);
 
