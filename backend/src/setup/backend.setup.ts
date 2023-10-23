@@ -13,6 +13,8 @@ import { errorHandlerMiddleware, requestLoggerMiddleware } from 'middlewares';
 
 import appRoutes from 'routes';
 
+import path from 'path';
+
 const port = process.env.PORT || 3001;
 
 const backendSetup = (app: Express) => {
@@ -30,8 +32,43 @@ const backendSetup = (app: Express) => {
     res.send('OK');
   });
 
+  app.use(fileUpload({
+    createParentPath: true,
+    abortOnLimit: true,
+    // limits: {fileSize: 1000*1024*1024},
+    useTempFiles: true, 
+    tempFileDir: '/tmp/',
+    safeFileNames: true,
+    preserveExtension: true
+  }));
+
+  // app.post('/upload', (req, res, next) => {
+  //   let uploadFile:any = req.files.file;
+  //   const name = uploadFile.name;
+  //   const md5 = uploadFile.md5;
+  //   const saveAs = `${md5}_${name}`;
+  //   console.log(saveAs)
+  //   // uploadFile.mv(`${__dirname}/public/files/${saveAs}`, function(err) {
+  //   uploadFile.mv(`${path.join(__dirname, '../../../','public/upload/img/')}${saveAs}`, function(err) {
+  //     if (err) {
+  //       return res.status(500).send(err);
+  //     }
+  //     return res.status(200).json({ status: 'uploaded', name, saveAs });
+  //   });
+  // });
+
   app.use(`/api/${ROUTE_VERSION}`, appRoutes);
   app.use(errorHandlerMiddleware);
+
+  // app.use(
+  //   fileUpload({
+  //     useTempFiles: true,
+  //     safeFileNames: true,
+  //     preserveExtension: true,
+  //     // tempFileDir: `${__dirname}/public/files/temp`
+  //     tempFileDir: path.join(__dirname, '../../../','public/upload/img')
+  //   })
+  // );
 
   app.listen(port, () => {
     console.info(`${MESSAGES.SERVER_RUN_SUCCESS} on PORT:${port}`);

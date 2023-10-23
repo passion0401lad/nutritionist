@@ -23,6 +23,9 @@ type Params = unknown;
 type ResBody = unknown;
 type ReqBody = {
   name?: string;
+  sex?: Boolean;
+  birthday?: Date;
+  avatar?:string;
   password?: string;
 };
 type ReqQuery = unknown;
@@ -31,15 +34,19 @@ export const updateUserHandler = async (
   req: AuthRequest<Params, ResBody, ReqBody, ReqQuery>,
   res: Response
 ) => {
-  const { name, password } = req.body;
+  const { name, sex, birthday, avatar, password } = req.body;
 
   const user = req.user;
+  console.log(user)
 
   const hashPassword: string = await encryptPassword(password);
 
   const updateUser: UserEntity = await userService.updateUser({
     name: name,
     email:user.email,
+    sex: sex,
+    birthday: birthday,
+    avatar:avatar,
     password: hashPassword,
   });
 

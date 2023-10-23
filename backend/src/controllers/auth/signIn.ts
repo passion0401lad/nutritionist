@@ -34,7 +34,7 @@ export const signInHandler = async (
         throw new NotFoundError('This email does not exist.')
     }
 
-    const validatePassword: Boolean = await comparePassword(password,user.password);
+    const validatePassword: Boolean = await comparePassword(password, user.password);
 
     if(!validatePassword) {
         throw new CustomError('Password does not correct.', httpStatus.BAD_REQUEST);

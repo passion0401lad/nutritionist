@@ -8,6 +8,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 export interface Date_Picker_Value {
   className: string;
   label: string;
+  value: Dayjs | null
   onChange: (date:Dayjs | null) => void;
 }
 
@@ -19,7 +20,7 @@ export default function DatePickerValue(props:Date_Picker_Value) {
       {/* <DemoContainer components={['DatePicker', 'DatePicker']}> */}
         <DatePicker
           label={props.label}
-          value={value}
+          value={props.value}
           // onChange={(newValue) => setValue(newValue)}
           onChange={(e) => props.onChange(e)}
           className={props.className}

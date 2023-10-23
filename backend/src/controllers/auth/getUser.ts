@@ -12,7 +12,7 @@ export const getUserValidator = () => {
 }
 
 type Params = {
-    email:string
+    id:number
 };
 type ResBody = unknown;
 type ReqBody = unknown;
@@ -23,9 +23,9 @@ export const getUserHandler = async (
   res: Response
 ) => {
 
-    const {email} = req.params;
+    const { id } = req.params;
     const user_now = req.user;
-  const user_get:UserEntity = await userService.getUserFromEmail(email);
+  const user_get:UserEntity = await userService.getUserFromId(id);
 
 
   if(!user_get) {
