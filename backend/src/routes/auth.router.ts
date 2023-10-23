@@ -27,7 +27,7 @@ authRouter.get(
 )
 
 authRouter.get(
-    '/:email',
+    '/:id',
     checkToken,
     authController.getUser
 )
@@ -40,7 +40,7 @@ authRouter.put(
 )
 
 authRouter.delete(
-    '/:email',
+    '/:id',
     checkToken,
     authController.deleteUser
 )

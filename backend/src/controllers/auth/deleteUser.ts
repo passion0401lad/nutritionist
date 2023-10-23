@@ -12,7 +12,7 @@ export const deleteUserValidator = () => {
 }
 
 type Params = {
-    email:string
+    id:number
 };
 type ResBody = unknown;
 type ReqBody = unknown;
@@ -23,15 +23,15 @@ export const deleteUserHandler = async (
   res: Response
 ) => {
 
-    const {email} = req.params;
+    const {id} = req.params;
     const user_now = req.user;
-    const user_delete:UserEntity = await userService.getUserFromEmail(email);
+    const user_delete:UserEntity = await userService.getUserFromId(id);
 
     if(!user_delete) {
-        throw new NotFoundError('This email does not exist.')
+        throw new NotFoundError('This user does not exist.')
     }
 
-    const delete_result:any = await userService.deleteUserFromEmail(email);
+    const delete_result:any = await userService.deleteUserFromId(id);
     console.log(delete_result)
   res.status(httpStatus.OK).json({delete_result: delete_result});
 }

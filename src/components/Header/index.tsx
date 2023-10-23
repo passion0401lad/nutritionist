@@ -123,7 +123,12 @@ export const Header: React.FC = () => {
   );
 };
 
-export const Menu: React.FC = () => {
+interface Menu_Type {
+  onSubmit:()=>void;
+  token: string | null
+}
+
+export const Menu: React.FC<Menu_Type> = (props) => {
   return (
       <div
         style={{
@@ -256,11 +261,15 @@ export const Menu: React.FC = () => {
               Blog
             </Link>
           </div>
+          {!props.token ?
           <Link to="/login">
-            <button className="rounded-[8px] bg-[#CBEA7B] hover:bg-[#a5c25b] px-[16px] py-[12px] md:px-[24px] md:py-[14px] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]">
-              Contact Us
+            <button className="w-[80px] md:w-[120px] rounded-[8px] bg-[#CBEA7B] hover:bg-[#a5c25b] px-[12px] py-[12px] md:px-[20px] md:py-[14px] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]">
+              LogIn
             </button>
-          </Link>
+          </Link> : 
+            <button onClick={props.onSubmit} className="w-[80px] md:w-[120px] rounded-[8px] bg-[#CBEA7B] hover:bg-[#a5c25b] px-[12px] py-[12px] md:px-[20px] md:py-[14px] font-Urbanist text-[14px] not-italic font-semibold leading-[150%] md:text-[18px]">
+              LogOut
+            </button> }
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

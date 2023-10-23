@@ -23,6 +23,8 @@ type ResBody = unknown;
 type ReqBody = {
   name: string;
   email: string;
+  sex: Boolean;
+  birthday: Date;
   password: string;
 };
 type ReqQuery = unknown;
@@ -31,8 +33,7 @@ export const signUpHandler = async (
   req: Request<Params, ResBody, ReqBody, ReqQuery>,
   res: Response
 ) => {
-  const { name, email, password } = req.body;
-
+  const { name, email, sex, birthday, password } = req.body;
   // try {
   const user:UserEntity = await userService.getUserFromEmail(email);
 
@@ -45,6 +46,8 @@ export const signUpHandler = async (
   const newUser: UserEntity = await userService.createUser({
     name: name,
     email: email,
+    sex: sex,
+    birthday: birthday,
     password: hashPassword,
   });
 

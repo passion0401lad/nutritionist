@@ -12,6 +12,12 @@ export class UserEntity extends CoreEntity {
     @Column({ name: 'email', nullable: true})
     email: string;
 
+    @Column({ name: 'sex', nullable: true})
+    sex: Boolean;
+
+    @Column({ name: 'birthday', nullable: true})
+    birthday: Date;
+
     @Column({ name: 'password', nullable: true})
     password: string;
     
